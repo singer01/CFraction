@@ -29,6 +29,6 @@ int main()
 	catch(...){
 		cout << "出现其它类型异常！"<<endl;
 	}
-	system("pause");;
+	system("pause");
 	return 0;
 }
