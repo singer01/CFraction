@@ -21,6 +21,14 @@ int main()
 		f1.Assign(10000000000, 10000000001);
 		f1 *= CFraction(10000000001, 10000000000);
 		ShowFraction(f1, "(10000000000/10000000001)*(10000000001/10000000000)");
+		if (CFraction(165, 375).CanItBeAFiniteDecimal())
+			cout << "165/375可以化成有限小数" << endl;
+		else
+			cout << "165/375不能化成有限小数" << endl;
+		if (CFraction(7, 49).CanItBeAFiniteDecimal())
+			cout << "7/49可以化成有限小数" << endl;
+		else
+			cout << "7/49不能化成有限小数" << endl;
 	}
 	catch(invalid_argument except){
 		cout << "出现参数无效异常！异常信息：" << except.what();

@@ -40,5 +40,7 @@ public:
 	CFraction operator-=(const CFraction&);
 	CFraction operator*=(const CFraction&);
 	CFraction operator/=(const CFraction&);
+	bool IsIrreducibleFraction()const;//是否为最简分数
+	bool CanItBeAFiniteDecimal()const;//能否化成有限小数
 }分数;
 

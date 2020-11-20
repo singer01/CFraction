@@ -57,7 +57,7 @@ void CFraction::SetNumerator(type n)
 	numerator = n;
 }
 
-void CFraction::SetDenominator(type d)
+void CFraction::SetDenominator(type d)throw()
 {
 	if (d == 0)
 		throw std::invalid_argument("分母为0！");
@@ -226,4 +226,28 @@ CFraction CFraction::operator/=(const CFraction& fraction)
 {
 	Assign(operator/(fraction));
 	return *this;
+}
+
+bool CFraction::IsIrreducibleFraction() const
+{
+	return (GCD(numerator, denominator) == 1);
+}
+
+bool CFraction::CanItBeAFiniteDecimal() const
+{
+	CFraction t(*this);
+	t.ReductionOfTheFraction();
+	while (1)//化成最简分数后判断分母是否只有2和5这两个因数
+	{
+		if (t.denominator % 2 == 0)
+			t.denominator /= 2;
+		else if (t.denominator % 5 == 0)
+			t.denominator /= 5;
+		else
+		{
+			if (t.denominator == 1)
+				return true;
+			return false;
+		}
+	}
 }
