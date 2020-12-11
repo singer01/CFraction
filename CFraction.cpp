@@ -1,5 +1,4 @@
 #include "CFraction.h"
-#include<Windows.h>
 CFraction::type CFraction::GCD(type x, type y)
 {
 	type t;
@@ -23,7 +22,7 @@ CFraction::CFraction()
 	denominator = 1;
 }
 
-CFraction::CFraction(type n, type d)throw()
+CFraction::CFraction(type n, type d = 1) throw()
 {
 	Assign(n, d);
 }
@@ -83,8 +82,6 @@ void CFraction::Assign(long double d) throw()
 		d *= 10;
 		i *= 10;
 	}
-	if (i > 10000000000)
-		OutputDebugStringW(L"小数位数过长，如参数是除法表达式，可能是无限不循环小数！\0");
 	this->numerator = static_cast<type>(d);
 	this->denominator = i;
 	this->ReductionOfTheFraction();
